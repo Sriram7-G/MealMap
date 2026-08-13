@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MealMap | Find Your Perfect Caterer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            <span>Meal</span>Map
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button class="login-btn">Login</button>
+            <button class="signup-btn">Get Started</button>
+        </div>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <p class="tagline">
+                    YOUR EVENT. YOUR MENU. YOUR CATERER.
+                </p>
+
+                <h1>
+                    Find the Perfect
+                    <span>Catering</span>
+                    for Your Event
+                </h1>
+
+                <p class="hero-description">
+                    Discover trusted catering providers near you.
+                    Compare menus, prices and services and make
+                    your event memorable.
+                </p>
+
+                <!-- Search -->
+                <div class="search-container">
+
+                    <div class="search-field">
+                        <label>📍 Location</label>
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="Enter your city or area"
+                        >
+                    </div>
+
+                    <div class="search-field">
+                        <label>🎉 Event Type</label>
+
+                        <select id="eventType">
+                            <option value="">Select event</option>
+                            <option>Wedding</option>
+                            <option>Birthday</option>
+                            <option>Corporate Event</option>
+                            <option>Party</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label>👥 Guests</label>
+
+                        <input
+                            type="number"
+                            id="guests"
+                            placeholder="Number of guests"
+                            min="1"
+                        >
+                    </div>
+
+                    <button
+                        class="search-btn"
+                        onclick="searchCaterers()"
+                    >
+                        Find Caterers
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+        <section class="features" id="services">
+
+            <div class="section-heading">
+                <p>WHY MEALMAP?</p>
+
+                <h2>
+                    Everything You Need
+                    for Your Event
+                </h2>
+            </div>
+
+
+            <div class="feature-container">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📍
+                    </div>
+
+                    <h3>Location Based</h3>
+
+                    <p>
+                        Find catering providers close to
+                        your event location.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🍽️
+                    </div>
+
+                    <h3>Explore Menus</h3>
+
+                    <p>
+                        Browse different menus and choose
+                        the perfect food for your event.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        💰
+                    </div>
+
+                    <h3>Compare Prices</h3>
+
+                    <p>
+                        Find catering services that match
+                        your budget and guest count.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ⭐
+                    </div>
+
+                    <h3>Trusted Providers</h3>
+
+                    <p>
+                        Discover highly-rated catering
+                        providers for your event.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- How It Works -->
+        <section class="how-it-works" id="how-it-works">
+
+            <div class="section-heading">
+
+                <p>HOW IT WORKS</p>
+
+                <h2>
+                    Plan Your Event in 4 Simple Steps
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+
+                    <h3>Search</h3>
+
+                    <p>
+                        Enter your location and event
+                        requirements.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <div class="step-number">2</div>
+
+                    <h3>Compare</h3>
+
+                    <p>
+                        Compare menus, prices and
+                        catering providers.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <div class="step-number">3</div>
+
+                    <h3>Choose</h3>
+
+                    <p>
+                        Select the caterer that best
+                        fits your requirements.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <div class="step-number">4</div>
+
+                    <h3>Book</h3>
+
+                    <p>
+                        Confirm your booking and
+                        enjoy your event.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            MealMap
+        </div>
+
+        <p>
+            Connecting you with the perfect catering
+            service for every occasion.
+        </p>
+
+        <p class="copyright">
+            © 2026 MealMap. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
