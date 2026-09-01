@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,16 +27,27 @@
         </nav>
 
         <div class="nav-buttons">
-            <button class="login-btn">Login</button>
-            <button class="signup-btn">Get Started</button>
+
+            <button class="login-btn">
+                Login
+            </button>
+
+            <button
+                class="signup-btn"
+                onclick="openRegisterModal()"
+            >
+                Get Started
+            </button>
+
         </div>
 
     </header>
 
 
-    <!-- Hero Section -->
+    <!-- Main Content -->
     <main>
 
+        <!-- Hero Section -->
         <section class="hero" id="home">
 
             <div class="hero-content">
@@ -56,32 +68,60 @@
                     your event memorable.
                 </p>
 
+
                 <!-- Search -->
                 <div class="search-container">
 
                     <div class="search-field">
+
                         <label>📍 Location</label>
+
                         <input
                             type="text"
                             id="location"
                             placeholder="Enter your city or area"
                         >
+
                     </div>
 
+
                     <div class="search-field">
+
                         <label>🎉 Event Type</label>
 
                         <select id="eventType">
-                            <option value="">Select event</option>
-                            <option>Wedding</option>
-                            <option>Birthday</option>
-                            <option>Corporate Event</option>
-                            <option>Party</option>
-                            <option>Other</option>
+
+                            <option value="">
+                                Select event
+                            </option>
+
+                            <option value="Wedding">
+                                Wedding
+                            </option>
+
+                            <option value="Birthday">
+                                Birthday
+                            </option>
+
+                            <option value="Corporate Event">
+                                Corporate Event
+                            </option>
+
+                            <option value="Party">
+                                Party
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
                         </select>
+
                     </div>
 
+
                     <div class="search-field">
+
                         <label>👥 Guests</label>
 
                         <input
@@ -90,7 +130,9 @@
                             placeholder="Number of guests"
                             min="1"
                         >
+
                     </div>
+
 
                     <button
                         class="search-btn"
@@ -110,12 +152,14 @@
         <section class="features" id="services">
 
             <div class="section-heading">
+
                 <p>WHY MEALMAP?</p>
 
                 <h2>
                     Everything You Need
                     for Your Event
                 </h2>
+
             </div>
 
 
@@ -127,7 +171,9 @@
                         📍
                     </div>
 
-                    <h3>Location Based</h3>
+                    <h3>
+                        Location Based
+                    </h3>
 
                     <p>
                         Find catering providers close to
@@ -143,7 +189,9 @@
                         🍽️
                     </div>
 
-                    <h3>Explore Menus</h3>
+                    <h3>
+                        Explore Menus
+                    </h3>
 
                     <p>
                         Browse different menus and choose
@@ -159,7 +207,9 @@
                         💰
                     </div>
 
-                    <h3>Compare Prices</h3>
+                    <h3>
+                        Compare Prices
+                    </h3>
 
                     <p>
                         Find catering services that match
@@ -175,7 +225,9 @@
                         ⭐
                     </div>
 
-                    <h3>Trusted Providers</h3>
+                    <h3>
+                        Trusted Providers
+                    </h3>
 
                     <p>
                         Discover highly-rated catering
@@ -194,7 +246,9 @@
 
             <div class="section-heading">
 
-                <p>HOW IT WORKS</p>
+                <p>
+                    HOW IT WORKS
+                </p>
 
                 <h2>
                     Plan Your Event in 4 Simple Steps
@@ -206,50 +260,74 @@
             <div class="steps">
 
                 <div class="step">
-                    <div class="step-number">1</div>
 
-                    <h3>Search</h3>
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Search
+                    </h3>
 
                     <p>
                         Enter your location and event
                         requirements.
                     </p>
+
                 </div>
 
 
                 <div class="step">
-                    <div class="step-number">2</div>
 
-                    <h3>Compare</h3>
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Compare
+                    </h3>
 
                     <p>
                         Compare menus, prices and
                         catering providers.
                     </p>
+
                 </div>
 
 
                 <div class="step">
-                    <div class="step-number">3</div>
 
-                    <h3>Choose</h3>
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Choose
+                    </h3>
 
                     <p>
                         Select the caterer that best
                         fits your requirements.
                     </p>
+
                 </div>
 
 
                 <div class="step">
-                    <div class="step-number">4</div>
 
-                    <h3>Book</h3>
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Book
+                    </h3>
 
                     <p>
                         Confirm your booking and
                         enjoy your event.
                     </p>
+
                 </div>
 
             </div>
@@ -257,6 +335,116 @@
         </section>
 
     </main>
+
+
+    <!-- =========================
+         REGISTRATION MODAL
+    ========================== -->
+
+    <div
+        id="registerModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-modal"
+                onclick="closeRegisterModal()"
+            >
+                &times;
+            </button>
+
+
+            <div class="register-header">
+
+                <p>
+                    WELCOME TO MEALMAP
+                </p>
+
+                <h2>
+                    Create Your Account
+                </h2>
+
+                <span>
+                    Find the perfect caterer for your event.
+                </span>
+
+            </div>
+
+
+            <form id="registerForm">
+
+                <!-- Name -->
+                <div class="form-group">
+
+                    <label for="registerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="registerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="registerEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="registerPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="register-submit"
+                >
+                    Create Account
+                </button>
+
+
+                <p
+                    id="registerMessage"
+                    class="register-message"
+                ></p>
+
+            </form>
+
+        </div>
+
+    </div>
 
 
     <!-- Footer -->
@@ -281,4 +469,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
