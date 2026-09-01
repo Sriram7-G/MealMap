@@ -1,7 +1,9 @@
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
+
 const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
@@ -9,6 +11,9 @@ const PORT = 3000;
 
 // Middleware
 app.use(express.json());
+
+// Authentication routes
+app.use("/api/auth", authRoutes);
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
@@ -27,6 +32,7 @@ app.get("/api/status", (req, res) => {
     });
 });
 
+// Connect to MongoDB
 connectDB();
 
 app.listen(PORT, () => {
