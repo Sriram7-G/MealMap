@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+require("dotenv").config();
+const connectDB = require("./config/db");
 
 const app = express();
 
@@ -24,6 +26,8 @@ app.get("/api/status", (req, res) => {
         message: "MealMap backend is working!"
     });
 });
+
+connectDB();
 
 app.listen(PORT, () => {
     console.log(`MealMap server running at http://localhost:${PORT}`);
