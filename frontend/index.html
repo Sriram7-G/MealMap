@@ -28,9 +28,9 @@
 
         <div class="nav-buttons">
 
-            <button class="login-btn">
-                Login
-            </button>
+            <button class="login-btn" onclick="openLoginModal()">
+    Login
+</button>
 
             <button
                 class="signup-btn"
@@ -445,7 +445,78 @@
         </div>
 
     </div>
+<!-- LOGIN MODAL -->
 
+<div id="loginModal" class="modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeLoginModal()">
+            &times;
+        </button>
+
+        <div class="register-header">
+
+            <p>WELCOME BACK TO MEALMAP</p>
+
+            <h2>Login to Your Account</h2>
+
+            <span>
+                Continue finding the perfect caterer for your event.
+            </span>
+
+        </div>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label for="loginEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="register-submit">
+                Login
+            </button>
+
+            <p
+                id="loginMessage"
+                class="register-message">
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
 
     <!-- Footer -->
     <footer>
