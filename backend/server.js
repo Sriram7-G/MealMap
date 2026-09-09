@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const providerRoutes = require("./routes/providerRoutes");
 
 const app = express();
 const PORT = 3000;
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Authentication routes
 app.use("/api/auth", authRoutes);
+app.use("/api/provider", providerRoutes);
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
