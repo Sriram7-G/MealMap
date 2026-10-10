@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MealMap | Register</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>Meal</span>Map
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button
+                class="login-btn"
+                onclick="window.location.href='login.html'"
+            >
+                Login
+            </button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="tagline">WELCOME TO MEALMAP</p>
+
+                <h1>
+                    Create Your
+                    <span>Account</span>
+                </h1>
+
+                <p class="hero-description">
+                    Sign up to find the perfect catering service for your event.
+                </p>
+
+                <div class="search-container">
+
+                    <div class="search-field">
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                        >
+                    </div>
+
+                    <div class="search-field">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                        >
+                    </div>
+
+                    <div class="search-field">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                        >
+                    </div>
+
+                    <button
+                        class="search-btn"
+                        onclick="registerUser()"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+        
+    async function registerUser() {
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (name === "") {
+            alert("Please enter your name.");
+            return;
+        }
+
+        if (email === "") {
+            alert("Please enter your email.");
+            return;
+        }
+
+        if (password === "") {
+            alert("Please enter your password.");
+            return;
+        }
+
+        try {
+
+            const response = await fetch("/api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert(data.message);
+
+                window.location.href = "login.html";
+            } else {
+                alert(data.message);
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Unable to connect to the server.");
+        }
+    }
+
+    </script>
+
+</body>
+</html>
