@@ -1,9 +1,9 @@
+
 /* =========================
    SEARCH CATERERS
 ========================= */
 
 function searchCaterers() {
-
     const location =
         document.getElementById("location").value.trim();
 
@@ -13,42 +13,39 @@ function searchCaterers() {
     const guests =
         document.getElementById("guests").value;
 
-
-    if (location === "") {
-
+    if (!location) {
         alert("Please enter your location.");
-
         return;
     }
 
-
-    if (eventType === "") {
-
+    if (!eventType) {
         alert("Please select your event type.");
-
         return;
     }
-
 
     if (guests === "" || Number(guests) <= 0) {
-
         alert("Please enter the number of guests.");
-
         return;
     }
 
-
-    alert(
-        `Searching for caterers in ${location} ` +
-        `for a ${eventType} with ${guests} guests.`
+    const query = encodeURIComponent(
+        `caterers near ${location}`
     );
 
-}
+   const mapsUrl =
+    `https://www.google.com/search?q=${query}`;
+  
+document.getElementById("mealMapFrame").src =
+    `https://www.google.com/maps?q=${encodeURIComponent(location)}&output=embed`;
+
+document.getElementById("map").scrollIntoView({
+    behavior: "smooth"
+});
 
 
 /* =========================
    REGISTRATION MODAL
-========================= */
+=========function search================ */
 
 function openRegisterModal() {
 
@@ -324,3 +321,4 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         message.textContent = "Unable to connect to the server.";
     }
 });
+}

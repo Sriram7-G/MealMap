@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,21 +28,13 @@
 
         <div class="nav-buttons">
 
-<!-- Login Button -->
-<button
-    class="login-btn"
-    onclick="window.location.href='login.html'"
->
+            <button class="login-btn" onclick="openLoginModal()">
     Login
 </button>
 
-<!-- Get Started Button -->
-<button
-    class="signup-btn"
-    onclick="window.location.href='register.html'"
->
-    Get Started
-</button>
+            <button
+                class="signup-btn"
+                onclick="openRegisterModal()"
             >
                 Get Started
             </button>
@@ -82,7 +74,7 @@
 
                     <div class="search-field">
 
-                        <label>📍 Location</label>
+                        <label>≡ƒôì Location</label>
 
                         <input
                             type="text"
@@ -95,7 +87,7 @@
 
                     <div class="search-field">
 
-                        <label>🎉 Event Type</label>
+                        <label>≡ƒÄë Event Type</label>
 
                         <select id="eventType">
 
@@ -130,7 +122,7 @@
 
                     <div class="search-field">
 
-                        <label>👥 Guests</label>
+                        <label>≡ƒæÑ Guests</label>
 
                         <input
                             type="number"
@@ -164,7 +156,7 @@
                 <p>WHY MEALMAP?</p>
 
                 <h2>
-                    Everything You will ever Need
+                    Everything You Need
                     for Your Event
                 </h2>
 
@@ -176,7 +168,7 @@
                 <div class="feature-card">
 
                     <div class="feature-icon">
-                        📍
+                        ≡ƒôì
                     </div>
 
                     <h3>
@@ -194,7 +186,7 @@
                 <div class="feature-card">
 
                     <div class="feature-icon">
-                        🍽️
+                        ≡ƒì╜∩╕Å
                     </div>
 
                     <h3>
@@ -212,7 +204,7 @@
                 <div class="feature-card">
 
                     <div class="feature-icon">
-                        💰
+                        ≡ƒÆ░
                     </div>
 
                     <h3>
@@ -230,7 +222,7 @@
                 <div class="feature-card">
 
                     <div class="feature-icon">
-                        ⭐
+                        Γ¡É
                     </div>
 
                     <h3>
@@ -268,13 +260,6 @@
             <div class="steps">
 
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        1
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
 
                     <div class="step-number">
                         1
@@ -293,13 +278,6 @@
 
 
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        2
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
 
                     <div class="step-number">
                         2
@@ -318,13 +296,6 @@
 
 
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        3
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
 
                     <div class="step-number">
                         3
@@ -343,13 +314,6 @@
 
 
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        4
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
 
                     <div class="step-number">
                         4
@@ -481,8 +445,100 @@
         </div>
 
     </div>
+<!-- LOGIN MODAL -->
 
+<div id="loginModal" class="modal">
 
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeLoginModal()">
+            &times;
+        </button>
+
+        <div class="register-header">
+
+            <p>WELCOME BACK TO MEALMAP</p>
+
+            <h2>Login to Your Account</h2>
+
+            <span>
+                Continue finding the perfect caterer for your event.
+            </span>
+
+        </div>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label for="loginEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="register-submit">
+                Login
+            </button>
+
+            <p
+                id="loginMessage"
+                class="register-message">
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- Google Maps Section -->
+<section class="map-section" id="map">
+    <div class="section-heading">
+        <p>FIND US NEAR YOU</p>
+        <h2>Explore Catering Locations</h2>
+        <p>Find locations for your catering needs.</p>
+    </div>
+
+    <div class="map-container">
+        <iframe
+            title="Google Maps - Hyderabad"
+           id="mealMapFrame"
+src="https://www.google.com/maps?q=Gandipet&output=embed"
+            width="100%"
+            height="400"
+            style="border:0;"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
     <!-- Footer -->
     <footer>
 
@@ -496,7 +552,7 @@
         </p>
 
         <p class="copyright">
-            © 2026 MealMap. All Rights Reserved.
+            ┬⌐ 2026 MealMap. All Rights Reserved.
         </p>
 
     </footer>
