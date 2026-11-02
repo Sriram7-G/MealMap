@@ -261,3 +261,132 @@ document
         }
 
     });
+    
+/* =========================
+   SERVICE PROVIDER MODAL
+========================= */
+
+function openProviderModal() {
+    document.getElementById("providerModal").style.display = "flex";
+}
+
+function closeProviderModal() {
+    document.getElementById("providerModal").style.display = "none";
+}
+
+
+/* =========================
+   CLOSE PROVIDER MODAL
+========================= */
+
+window.addEventListener("click", function (event) {
+    const modal = document.getElementById("providerModal");
+
+    if (event.target === modal) {
+        closeProviderModal();
+    }
+});
+
+
+/* =========================
+   SERVICE PROVIDER REGISTRATION
+========================= */
+
+document
+    .getElementById("providerForm")
+    .addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        const businessName = document.getElementById("businessName").value.trim();
+        const ownerName = document.getElementById("ownerName").value.trim();
+        const email = document.getElementById("providerEmail").value.trim();
+        const phone = document.getElementById("providerPhone").value.trim();
+        const password = document.getElementById("providerPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const businessType = document.getElementById("businessType").value;
+        const address = document.getElementById("providerAddress").value.trim();
+        const city = document.getElementById("providerCity").value.trim();
+        const description = document.getElementById("providerDescription").value.trim();
+
+        const message = document.getElementById("providerMessage");
+        const submitButton = document.querySelector(".provider-submit");
+
+        message.textContent = "";
+        message.style.color = "";
+
+        // Validate fields
+        if (
+            !businessName || !ownerName || !email ||
+            !phone || !password || !confirmPassword ||
+            !businessType || !address || !city || !description
+        ) {
+            message.textContent = "Please fill in all fields.";
+            message.style.color = "#d93025";
+            return;
+        }
+
+        if (password.length < 6) {
+            message.textContent = "Password must be at least 6 characters.";
+            message.style.color = "#d93025";
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            message.textContent = "Passwords do not match.";
+            message.style.color = "#d93025";
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Registering...";
+
+        try {
+            const response = await fetch("/api/provider/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    businessName,
+                    ownerName,
+                    email,
+                    phone,
+                    password,
+                    confirmPassword,
+                    businessType,
+                    address,
+                    city,
+                    description
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                message.textContent = "Business registered successfully!";
+                message.style.color = "green";
+
+                document.getElementById("providerForm").reset();
+
+                setTimeout(function () {
+                    closeProviderModal();
+                    message.textContent = "";
+                }, 1500);
+
+            } else {
+                message.textContent = data.message || "Registration failed.";
+                message.style.color = "#d93025";
+            }
+
+        } catch (error) {
+            console.error("Provider registration error:", error);
+
+            message.textContent = "Unable to connect to the server.";
+            message.style.color = "#d93025";
+
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Register Business";
+        }
+    });
