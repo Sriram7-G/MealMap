@@ -1,9 +1,9 @@
+
 /* =========================
    SEARCH CATERERS
 ========================= */
 
 function searchCaterers() {
-
     const location =
         document.getElementById("location").value.trim();
 
@@ -13,42 +13,38 @@ function searchCaterers() {
     const guests =
         document.getElementById("guests").value;
 
-
-    if (location === "") {
-
+    if (!location) {
         alert("Please enter your location.");
-
         return;
     }
 
-
-    if (eventType === "") {
-
+    if (!eventType) {
         alert("Please select your event type.");
-
         return;
     }
-
 
     if (guests === "" || Number(guests) <= 0) {
-
         alert("Please enter the number of guests.");
-
         return;
     }
 
-
-    alert(
-        `Searching for caterers in ${location} ` +
-        `for a ${eventType} with ${guests} guests.`
+    const query = encodeURIComponent(
+        `caterers near ${location}`
     );
 
-}
+   const mapsUrl =
+    `https://www.google.com/search?q=${query}`;
+document.getElementById("mealMapFrame").src =
+    `https://www.google.com/maps?q=${encodeURIComponent(location)}&output=embed`;
+
+document.getElementById("map").scrollIntoView({
+    behavior: "smooth"
+});
 
 
 /* =========================
    REGISTRATION MODAL
-========================= */
+=========function search================ */
 
 function openRegisterModal() {
 
@@ -273,6 +269,17 @@ function openProviderModal() {
 function closeProviderModal() {
     document.getElementById("providerModal").style.display = "none";
 }
+    /* =========================
+   LOGIN MODAL
+========================= */
+
+function openLoginModal() {
+    document.getElementById("loginModal").style.display = "flex";
+}
+
+function closeLoginModal() {
+    document.getElementById("loginModal").style.display = "none";
+}
 
 
 /* =========================
@@ -390,3 +397,52 @@ document
             submitButton.textContent = "Register Business";
         }
     });
+   LOGIN
+========================= */
+
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+    const message = document.getElementById("loginMessage");
+
+    if (!email || !password) {
+        message.textContent = "Please enter email and password.";
+        return;
+    }
+
+    try {
+        const response = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            message.textContent = `Welcome back, ${data.user.name}!`;
+
+            document.getElementById("loginForm").reset();
+
+            setTimeout(function () {
+                closeLoginModal();
+                message.textContent = "";
+            }, 1500);
+
+        } else {
+            message.textContent = data.message || "Login failed.";
+        }
+
+    } catch (error) {
+        console.error("Login error:", error);
+        message.textContent = "Unable to connect to the server.";
+    }
+});

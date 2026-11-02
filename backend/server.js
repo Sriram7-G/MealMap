@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
@@ -7,10 +8,10 @@ const authRoutes = require("./routes/authRoutes");
 const providerRoutes = require("./routes/providerRoutes");
 
 const app = express();
-
 const PORT = 3000;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Authentication routes
@@ -20,7 +21,7 @@ app.use("/api/provider", providerRoutes);
 // Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
 
-// Home route
+// Home page
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
