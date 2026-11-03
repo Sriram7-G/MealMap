@@ -1,23 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>MealMap | Find Your Perfect Caterer</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <!-- Navigation -->
     <header class="navbar">
-
-        <div class="logo">
-            <span>Meal</span>Map
-        </div>
+        <div class="logo"><span>Meal</span>Map</div>
 
         <nav>
             <a href="#home">Home</a>
@@ -27,42 +21,20 @@
         </nav>
 
         <div class="nav-buttons">
-
-<!-- Login Button -->
-<button
-    class="login-btn"
-    onclick="window.location.href='login.html'"
->
-    Login
-</button>
-
-<!-- Get Started Button -->
-<button
-    class="signup-btn"
-    onclick="window.location.href='register.html'"
->
-    Get Started
-</button>
-            >
+            <button type="button" class="login-btn" onclick="openLoginModal()">
+                Login
+            </button>
+            <button type="button" class="signup-btn" onclick="openRegisterModal()">
                 Get Started
             </button>
-
         </div>
-
     </header>
 
-
-    <!-- Main Content -->
     <main>
-
         <!-- Hero Section -->
         <section class="hero" id="home">
-
             <div class="hero-content">
-
-                <p class="tagline">
-                    YOUR EVENT. YOUR MENU. YOUR CATERER.
-                </p>
+                <p class="tagline">YOUR EVENT. YOUR MENU. YOUR CATERER.</p>
 
                 <h1>
                     Find the Perfect
@@ -76,382 +48,204 @@
                     your event memorable.
                 </p>
 
-
                 <!-- Search -->
                 <div class="search-container">
-
                     <div class="search-field">
-
-                        <label>📍 Location</label>
-
+                        <label for="location">📍 Location</label>
                         <input
                             type="text"
                             id="location"
                             placeholder="Enter your city or area"
                         >
-
                     </div>
 
-
                     <div class="search-field">
-
-                        <label>🎉 Event Type</label>
-
+                        <label for="eventType">🎉 Event Type</label>
                         <select id="eventType">
-
-                            <option value="">
-                                Select event
-                            </option>
-
-                            <option value="Wedding">
-                                Wedding
-                            </option>
-
-                            <option value="Birthday">
-                                Birthday
-                            </option>
-
-                            <option value="Corporate Event">
-                                Corporate Event
-                            </option>
-
-                            <option value="Party">
-                                Party
-                            </option>
-
-                            <option value="Other">
-                                Other
-                            </option>
-
+                            <option value="">Select event</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Corporate Event">Corporate Event</option>
+                            <option value="Party">Party</option>
+                            <option value="Other">Other</option>
                         </select>
-
                     </div>
 
-
                     <div class="search-field">
-
-                        <label>👥 Guests</label>
-
+                        <label for="guests">👥 Guests</label>
                         <input
                             type="number"
                             id="guests"
                             placeholder="Number of guests"
                             min="1"
                         >
-
                     </div>
 
-
-                    <button
-                        class="search-btn"
-                        onclick="searchCaterers()"
-                    >
+                    <button type="button" class="search-btn" onclick="searchCaterers()">
                         Find Caterers
                     </button>
-
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- Features -->
         <section class="features" id="services">
-
             <div class="section-heading">
-
                 <p>WHY MEALMAP?</p>
-
-                <h2>
-                    Everything You will ever Need
-                    for Your Event
-                </h2>
-
+                <h2>Everything You Will Ever Need for Your Event</h2>
             </div>
-
 
             <div class="feature-container">
-
                 <div class="feature-card">
-
-                    <div class="feature-icon">
-                        📍
-                    </div>
-
-                    <h3>
-                        Location Based
-                    </h3>
-
-                    <p>
-                        Find catering providers close to
-                        your event location.
-                    </p>
-
+                    <div class="feature-icon">📍</div>
+                    <h3>Location Based</h3>
+                    <p>Find catering providers close to your event location.</p>
                 </div>
 
-
                 <div class="feature-card">
-
-                    <div class="feature-icon">
-                        🍽️
-                    </div>
-
-                    <h3>
-                        Explore Menus
-                    </h3>
-
-                    <p>
-                        Browse different menus and choose
-                        the perfect food for your event.
-                    </p>
-
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Explore Menus</h3>
+                    <p>Browse different menus and choose the perfect food for your event.</p>
                 </div>
 
-
                 <div class="feature-card">
-
-                    <div class="feature-icon">
-                        💰
-                    </div>
-
-                    <h3>
-                        Compare Prices
-                    </h3>
-
-                    <p>
-                        Find catering services that match
-                        your budget and guest count.
-                    </p>
-
+                    <div class="feature-icon">💰</div>
+                    <h3>Compare Prices</h3>
+                    <p>Find catering services that match your budget and guest count.</p>
                 </div>
 
-
                 <div class="feature-card">
-
-                    <div class="feature-icon">
-                        ⭐
-                    </div>
-
-                    <h3>
-                        Trusted Providers
-                    </h3>
-
-                    <p>
-                        Discover highly-rated catering
-                        providers for your event.
-                    </p>
-
+                    <div class="feature-icon">⭐</div>
+                    <h3>Trusted Providers</h3>
+                    <p>Discover highly-rated catering providers for your event.</p>
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- How It Works -->
         <section class="how-it-works" id="how-it-works">
-
             <div class="section-heading">
-
-                <p>
-                    HOW IT WORKS
-                </p>
-
-                <h2>
-                    Plan Your Event in 4 Simple Steps
-                </h2>
-
+                <p>HOW IT WORKS</p>
+                <h2>Plan Your Event in 4 Simple Steps</h2>
             </div>
-
 
             <div class="steps">
-
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        1
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
-
-                    <div class="step-number">
-                        1
-                    </div>
-
-                    <h3>
-                        Search
-                    </h3>
-
-                    <p>
-                        Enter your location and event
-                        requirements.
-                    </p>
-
+                    <div class="step-number">1</div>
+                    <h3>Search</h3>
+                    <p>Enter your location and event requirements.</p>
                 </div>
 
-
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        2
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
-
-                    <div class="step-number">
-                        2
-                    </div>
-
-                    <h3>
-                        Compare
-                    </h3>
-
-                    <p>
-                        Compare menus, prices and
-                        catering providers.
-                    </p>
-
+                    <div class="step-number">2</div>
+                    <h3>Compare</h3>
+                    <p>Compare menus, prices and catering providers.</p>
                 </div>
 
-
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        3
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
-
-                    <div class="step-number">
-                        3
-                    </div>
-
-                    <h3>
-                        Choose
-                    </h3>
-
-                    <p>
-                        Select the caterer that best
-                        fits your requirements.
-                    </p>
-
+                    <div class="step-number">3</div>
+                    <h3>Choose</h3>
+                    <p>Select the caterer that best fits your requirements.</p>
                 </div>
 
-
                 <div class="step">
-<<<<<<< HEAD
-=======
-
-                    <div class="step-number">
-                        4
-                    </div>
->>>>>>> 2f07ca2 (feat: update MealMap backend and registration)
-
-                    <div class="step-number">
-                        4
-                    </div>
-
-                    <h3>
-                        Book
-                    </h3>
-
-                    <p>
-                        Confirm your booking and
-                        enjoy your event.
-                    </p>
-
+                    <div class="step-number">4</div>
+                    <h3>Book</h3>
+                    <p>Confirm your booking and enjoy your event.</p>
                 </div>
-
             </div>
-
         </section>
 
+        <!-- About -->
+        <section id="about" class="about">
+            <div class="section-heading">
+                <p>ABOUT MEALMAP</p>
+                <h2>Making Event Catering Easier</h2>
+                <p>
+                    MealMap helps customers discover catering services
+                    and compare menus for their events.
+                </p>
+            </div>
+        </section>
     </main>
 
-
-    <!-- =========================
-         REGISTRATION MODAL
-    ========================== -->
-
-    <div
-        id="registerModal"
-        class="modal"
-    >
-
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
         <div class="modal-content">
-
-            <button
-                class="close-modal"
-                onclick="closeRegisterModal()"
-            >
+            <button type="button" class="close-modal" onclick="closeLoginModal()">
                 &times;
             </button>
 
-
             <div class="register-header">
-
-                <p>
-                    WELCOME TO MEALMAP
-                </p>
-
-                <h2>
-                    Create Your Account
-                </h2>
-
-                <span>
-                    Find the perfect caterer for your event.
-                </span>
-
+                <p>WELCOME BACK</p>
+                <h2>Login to MealMap</h2>
             </div>
 
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="register-submit">Login</button>
+                <p id="loginMessage" class="register-message" role="status"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <button type="button" class="close-modal" onclick="closeRegisterModal()">
+                &times;
+            </button>
+
+            <div class="register-header">
+                <p>WELCOME TO MEALMAP</p>
+                <h2>Create Your Account</h2>
+                <span>Find the perfect caterer for your event.</span>
+            </div>
 
             <form id="registerForm">
-
-                <!-- Name -->
                 <div class="form-group">
-
-                    <label for="registerName">
-                        Full Name
-                    </label>
-
+                    <label for="registerName">Full Name</label>
                     <input
                         type="text"
                         id="registerName"
                         placeholder="Enter your name"
                         required
                     >
-
                 </div>
 
-
-                <!-- Email -->
                 <div class="form-group">
-
-                    <label for="registerEmail">
-                        Email
-                    </label>
-
+                    <label for="registerEmail">Email</label>
                     <input
                         type="email"
                         id="registerEmail"
                         placeholder="Enter your email"
                         required
                     >
-
                 </div>
 
-
-                <!-- Password -->
                 <div class="form-group">
-
-                    <label for="registerPassword">
-                        Password
-                    </label>
-
+                    <label for="registerPassword">Password</label>
                     <input
                         type="password"
                         id="registerPassword"
@@ -459,51 +253,21 @@
                         minlength="6"
                         required
                     >
-
                 </div>
 
-
-                <button
-                    type="submit"
-                    class="register-submit"
-                >
-                    Create Account
-                </button>
-
-
-                <p
-                    id="registerMessage"
-                    class="register-message"
-                ></p>
-
+                <button type="submit" class="register-submit">Create Account</button>
+                <p id="registerMessage" class="register-message" role="status"></p>
             </form>
-
         </div>
-
     </div>
-
 
     <!-- Footer -->
     <footer>
-
-        <div class="footer-logo">
-            MealMap
-        </div>
-
-        <p>
-            Connecting you with the perfect catering
-            service for every occasion.
-        </p>
-
-        <p class="copyright">
-            © 2026 MealMap. All Rights Reserved.
-        </p>
-
+        <div class="footer-logo">MealMap</div>
+        <p>Connecting you with the perfect catering service for every occasion.</p>
+        <p class="copyright">© 2026 MealMap. All Rights Reserved.</p>
     </footer>
 
-
     <script src="script.js"></script>
-
 </body>
-
 </html>

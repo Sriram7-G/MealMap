@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const menuRoutes = require("./routes/menuRoutes");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
@@ -17,6 +18,7 @@ app.use(express.json());
 // Authentication routes
 app.use("/api/auth", authRoutes);
 app.use("/api/provider", providerRoutes);
+app.use("/api/menus", menuRoutes);
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
@@ -36,8 +38,19 @@ app.get("/api/status", (req, res) => {
 });
 
 // Connect to MongoDB
-connectDB();
+// Start server after connecting to MongoDB
+const startServer = async () => {
+    try {
+        await connectDB();
 
-app.listen(PORT, () => {
-    console.log(`MealMap server running at http://localhost:${PORT}`);
-});
+        app.listen(PORT, () => {
+            console.log(`MealMap server running at http://localhost:${PORT}`);
+        });
+
+    } catch (error) {
+        console.error("Failed to start MealMap:", error.message);
+        process.exit(1);
+    }
+};
+
+startServer();

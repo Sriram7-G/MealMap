@@ -291,36 +291,56 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         return;
     }
 
-    try {
-        const response = await fetch("/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        });
+   
+try {
+    const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    });
 
-        const data = await response.json();
+    const data = await response.json();
+    console.log("LOGIN RESPONSE:", {
+    success: response.ok,
+    role: data.user?.role,
+    tokenExists: !!data.token
+});
 
-        if (response.ok) {
-            message.textContent = `Welcome back, ${data.user.name}!`;
+    if (response.ok) {
 
-            document.getElementById("loginForm").reset();
+        // Save authentication token
+        localStorage.setItem("token", data.token);
 
-            setTimeout(function () {
-                closeLoginModal();
-                message.textContent = "";
-            }, 1500);
+        // Save logged-in user information
+        localStorage.setItem("user", JSON.stringify(data.user));
 
-        } else {
-            message.textContent = data.message || "Login failed.";
-        }
+        message.textContent = `Welcome back, ${data.user.name}!`;
 
-    } catch (error) {
-        console.error("Login error:", error);
-        message.textContent = "Unable to connect to the server.";
+        document.getElementById("loginForm").reset();
+
+        setTimeout(function () {
+            closeLoginModal();
+
+            // Redirect according to user role
+            if (data.user.role === "provider") {
+                window.location.href = "/provider-dashboard.html";
+            } else {
+                window.location.href = "/index.html";
+            }
+
+        }, 1000);
+
+    } else {
+        message.textContent = data.message || "Login failed.";
     }
+
+} catch (error) {
+    console.error("Login error:", error);
+    message.textContent = "Unable to connect to the server.";
+}
 });

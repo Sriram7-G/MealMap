@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealMap | Provider Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><span>Meal</span>Map</div>
+        <nav>
+            <a href="index.html">Customer Homepage</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="logoutUser()">Logout</button>
+        </div>
+    </header>
+
+    <!-- Provider dashboard -->
+    <main>
+        <section id="providerDashboard" class="provider-dashboard">
+            <div class="dashboard-header">
+                <div>
+                    <p class="tagline">MEALMAP PROVIDER PORTAL</p>
+                    <h2>Manage Your Menus</h2>
+                    <p>Create and manage catering packages for your customers.</p>
+                </div>
+            </div>
+
+            <div class="menu-dashboard-grid">
+                <div class="menu-form-card">
+                    <h3 id="menuFormTitle">Add a New Menu</h3>
+                    <form id="menuForm">
+                        <div class="form-group">
+                            <label for="menuName">Menu Name</label>
+                            <input id="menuName" type="text" maxlength="100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="menuDescription">Description</label>
+                            <textarea id="menuDescription" maxlength="1000"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="menuCategory">Event Category</label>
+                            <select id="menuCategory" required>
+                                <option value="">Select category</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Birthday">Birthday</option>
+                                <option value="Corporate">Corporate</option>
+                                <option value="Festival">Festival</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="menuPrice">Price Per Plate (₹)</label>
+                            <input id="menuPrice" type="number" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="menuFoodType">Food Type</label>
+                            <select id="menuFoodType" required>
+                                <option value="">Select food type</option>
+                                <option value="Vegetarian">Vegetarian</option>
+                                <option value="Non-Vegetarian">Non-Vegetarian</option>
+                                <option value="Both">Both</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="menuMinGuests">Minimum Guests</label>
+                            <input id="menuMinGuests" type="number" min="1" value="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="menuImageUrl">Image URL (optional)</label>
+                            <input id="menuImageUrl" type="url">
+                        </div>
+
+                        <label class="menu-availability">
+                            <input id="menuAvailable" type="checkbox" checked>
+                            Available for booking
+                        </label>
+
+                        <button type="submit" class="register-submit" id="menuSubmitButton">
+                            Add Menu
+                        </button>
+
+                        <button type="button" id="cancelMenuEdit" class="login-btn"
+                            hidden onclick="resetMenuForm()">
+                            Cancel Edit
+                        </button>
+
+                        <p id="menuMessage" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+
+                <div class="provider-menus">
+                    <div class="menus-heading">
+                        <h3>Your Catering Menus</h3>
+                        <button type="button" class="login-btn" onclick="loadProviderMenus()">
+                            Refresh
+                        </button>
+                    </div>
+                    <p id="menusMessage" role="status" aria-live="polite"></p>
+                    <div id="providerMenuList" class="provider-menu-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="provider-dashboard.js"></script> 
+</body>
+</html>
