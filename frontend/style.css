@@ -835,8 +835,162 @@ footer p {
 }
 
 /* =========================
+   PROVIDER DASHBOARD
+
+.provider-dashboard {
+    max-width: 1250px;
+    margin: 45px auto;
+    padding: 30px;
+}
+
+.dashboard-header {
+    margin-bottom: 35px;
+}
+
+.dashboard-header h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.dashboard-header p:not(.tagline) {
+    color: #666;
+    font-size: 16px;
+}
+
+.menu-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.menu-form-card,
+.provider-menus {
+    background: #fff;
+    padding: 28px;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.menu-form-card h3,
+.provider-menus h3 {
+    font-size: 22px;
+    margin-bottom: 24px;
+}
+
+.menu-form-card input,
+.menu-form-card select,
+.menu-form-card textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #fff;
+}
+
+.menu-form-card textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.menu-form-card input:focus,
+.menu-form-card select:focus,
+.menu-form-card textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+}
+
+.menu-availability {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.menu-availability input {
+    width: auto;
+}
+
+#cancelMenuEdit {
+    margin-top: 12px;
+}
+
+.menus-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.provider-menu-list {
+    display: grid;
+    gap: 18px;
+}
+
+.provider-menu-card {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.provider-menu-card h4 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.provider-menu-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.provider-menu-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.menu-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.menu-actions button,
+.delete-menu-btn {
+    padding: 9px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-menu-btn {
+    background: #fff;
+    color: #d93025;
+    border: 1px solid #d93025;
+}
+
+#menuMessage,
+#menusMessage {
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    .menu-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .provider-dashboard {
+        padding: 20px;
+        margin: 20px auto;
    SERVICE PROVIDER REGISTRATION
-========================= */
 
 /* Provider registration button */
 
