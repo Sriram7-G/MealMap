@@ -1,0 +1,18 @@
+
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "MealMap Selenium automated browser tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "node run-all.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chromedriver": "^156.0.2",
+    "selenium-webdriver": "^4.51.0"
+  }
+}
