@@ -1,10 +1,11 @@
+
 const mongoose = require("mongoose");
 
 const menuSchema = new mongoose.Schema(
     {
         provider: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
+            ref: "ServiceProvider",
             required: true,
             index: true
         },
@@ -44,7 +45,11 @@ const menuSchema = new mongoose.Schema(
         foodType: {
             type: String,
             required: true,
-            enum: ["Vegetarian", "Non-Vegetarian", "Both"]
+            enum: [
+                "Vegetarian",
+                "Non-Vegetarian",
+                "Both"
+            ]
         },
 
         minGuests: {

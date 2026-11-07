@@ -1,4 +1,6 @@
+
 const bcrypt = require("bcryptjs");
+
 const ServiceProvider = require("../models/ServiceProvider");
 const User = require("../models/User");
 
@@ -34,9 +36,11 @@ const registerServiceProvider = async (req, res) => {
             });
         }
 
+        const normalizedEmail = email.toLowerCase().trim();
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!emailRegex.test(email)) {
+        if (!emailRegex.test(normalizedEmail)) {
             return res.status(400).json({
                 message: "Please enter a valid email address"
             });
@@ -54,40 +58,33 @@ const registerServiceProvider = async (req, res) => {
             });
         }
 
-        const normalizedEmail = email.toLowerCase().trim();
-
+        // Check customer and provider collections
         const existingUser = await User.findOne({
             email: normalizedEmail
         });
-
-        if (existingUser) {
-            return res.status(409).json({
-                message: "An account with this email already exists"
-            });
-        }
 
         const existingProvider = await ServiceProvider.findOne({
             email: normalizedEmail
         });
 
-        if (existingProvider) {
+        if (existingUser || existingProvider) {
             return res.status(409).json({
-                message: "A service provider with this email already exists"
+                message: "An account with this email already exists"
             });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const serviceProvider = await ServiceProvider.create({
-            businessName,
-            ownerName,
+            businessName: businessName.trim(),
+            ownerName: ownerName.trim(),
             email: normalizedEmail,
-            phone,
+            phone: phone.trim(),
             password: hashedPassword,
             businessType,
-            address,
-            city,
-            description
+            address: address.trim(),
+            city: city.trim(),
+            description: description.trim()
         });
 
         return res.status(201).json({
@@ -106,10 +103,20 @@ const registerServiceProvider = async (req, res) => {
         });
 
     } catch (error) {
-        console.error(
-            "Service provider registration error:",
-            error.message
-        );
+        console.error("Service provider registration error:", error);
+
+        if (error.code === 11000) {
+            return res.status(409).json({
+                message: "An account with this email already exists"
+            });
+        }
+
+        if (error.name === "ValidationError") {
+            return res.status(400).json({
+                message: "Invalid provider details",
+                error: error.message
+            });
+        }
 
         return res.status(500).json({
             message: "Server error"
